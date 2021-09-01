@@ -1,17 +1,9 @@
 const app = require('express')();
+const {addPatientMonitoringParams} = require('./add-params');
+const {getPatientMonitoringStats} = require('./get-stats');
 
-app.post('/pm-params', (req, res) => {
-  res.json({storedStatus: 'ok'});
-});
-
-app.get('/pm-stats', (req, res) => {
-  res.json({
-    spo2: {
-      min: null,
-      max: null,
-    },
-  });
-});
+app.post('/pm-params', addPatientMonitoringParams);
+app.get('/pm-stats', getPatientMonitoringStats);
 
 app.listen(3000, () => {
   console.log('listening on port 3000');
