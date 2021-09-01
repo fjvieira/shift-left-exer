@@ -5,6 +5,6 @@ it('adds params on POST request', async ()=> {
   const res = {json: function(jsonResponse) {
     this.jsonResponse = jsonResponse;
   }};
-  await addPatientMonitoringParams({}, res);
+  await addPatientMonitoringParams({body: {spo2: 96}}, res);
   expect(res.jsonResponse).is.not.undefined;
 });
