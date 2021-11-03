@@ -8,4 +8,8 @@ function addParams(p) {
   }
 }
 
-module.exports = {addParams, params};
+function getParams() {
+  return params;
+}
+
+export {addParams, getParams};

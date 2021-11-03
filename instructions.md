@@ -1,21 +1,27 @@
-# Collect and Reduce
+# Instructions
 
-## Setup
+## Requirements
 
-Install and use node v14 or higher. Use nvm to manage node installations.
-Install using https://github.com/nvm-sh/nvm#install--update-script
+- Node v14 or higher. Use nvm to manage node installations. Install using:
+    ```
+    https://github.com/nvm-sh/nvm#install--update-script
+    ```
 
-Install NPM dependencies
+- NPM dependencies:
 
-```bash
-npm install
-```
+    ```bash
+    npm install
+    ```
 
-Start the server
+## Runtime
+
+Check index.js to see port and routes. Command to start the server:
 
 ```bash
 npm start
 ```
+
+## Scripts with data samples
 
 POST some SPO2 values
 
@@ -25,7 +31,7 @@ bash test/post-spo2.sh 98
 bash test/post-spo2.sh 99
 ```
 
-GET the results
+GET the statistics
 
 ```bash
  bash test/fetch-stats.sh

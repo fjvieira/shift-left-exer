@@ -1,4 +1,4 @@
-const {params} = require('./paramstore');
+import {getParams} from './paramstore.js';
 
 function getPatientMonitoringStats(req, res) {
   console.log(`getting
@@ -7,7 +7,7 @@ function getPatientMonitoringStats(req, res) {
     const [scheme, token] = req.headers.authorization.split(' ');
     if (scheme === 'Bearer' && token === 'secret') {
       // The tests will succeed even if you return an empty object here
-      const minmaxes = Object.entries(params).map(([key, values])=>
+      const minmaxes = Object.entries(getParams()).map(([key, values]) =>
         ({[key]: {min: Math.min(...values), max: Math.max(...values)}}));
       return res.json(minmaxes);
     }
@@ -15,4 +15,4 @@ function getPatientMonitoringStats(req, res) {
   return res.status(401).json({error: 'unauthorized'});
 }
 
-module.exports = {getPatientMonitoringStats};
+export default getPatientMonitoringStats;

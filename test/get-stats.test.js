@@ -1,14 +1,15 @@
-const {expect} = require('chai');
-const {getPatientMonitoringStats} = require('../get-stats');
+import {expect} from 'chai';
 
-it('gets statistics on patient monitoring parameters', async ()=> {
+import getPatientMonitoringStats from '../modules/get-stats.js';
+
+it('gets statistics on patient monitoring parameters', async () => {
   const res = {
     json: function(jsonResponse) {
       this.jsonResponse = jsonResponse;
     },
     status: function(statusCode) {
       this.status = statusCode;
-      return {json: function() {}};
+      return {json: function() { }};
     },
   };
   await getPatientMonitoringStats(

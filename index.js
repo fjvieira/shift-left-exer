@@ -1,9 +1,11 @@
-const express = require('express');
-const app = express();
-const {addPatientMonitoringParams} = require('./add-params');
-const {getPatientMonitoringStats} = require('./get-stats');
+import addPatientMonitoringParams from './modules/add-params.js';
 
-app.use(express.json());
+import getPatientMonitoringStats from './modules/get-stats.js';
+
+import express, {json} from 'express';
+const app = express();
+
+app.use(json());
 app.post('/pm-params', addPatientMonitoringParams);
 app.get('/pm-stats', getPatientMonitoringStats);
 

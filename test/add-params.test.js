@@ -1,14 +1,15 @@
-const {expect} = require('chai');
-const {addPatientMonitoringParams} = require('../add-params');
+import {expect} from 'chai';
 
-it('adds params on POST request', async ()=> {
+import addPatientMonitoringParams from '../modules/add-params.js';
+
+it('adds params on POST request', async () => {
   const res = {
     json: function(jsonResponse) {
       this.jsonResponse = jsonResponse;
     },
     status: function(statusCode) {
       this.status = statusCode;
-      return {json: function() {}};
+      return {json: function() { }};
     },
   };
   await addPatientMonitoringParams(
